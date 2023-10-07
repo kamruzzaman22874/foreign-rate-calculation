@@ -89,7 +89,7 @@ const AllInputField = ({ initialRates }) => {
             }
         }
         setLoading(activeResult);
-    }, [country, service, carrier, weight, activeResult, rateUpdateState, setLoading]);
+    }, [country, service, carrier, weight, activeResult, rateUpdateState, setLoading, rateUpdateState]);
 
 
     return (
