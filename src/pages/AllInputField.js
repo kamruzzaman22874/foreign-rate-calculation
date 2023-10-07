@@ -125,18 +125,20 @@ const AllInputField = ({ initialRates }) => {
                                             </p>
                                         ) : (
                                             <span className="font-bold text-[#08919E] text-2xl">
-                                                <span style={{ color: "green" }}>Total Cost:</span>  <span style={{ color: "blueviolet" }}>{rates ? rates : "Service not available"} (BDT)</span>
+                                                <span style={{ color: "green" }}>Total amount:</span>  <span style={{ color: "blueviolet" }}>{rates ? rates : "Service not available"} (BDT)</span>
                                             </span>
                                         )}
                                     </div>
                                 )}
                             </div>
-
-                            <Button style={{ backgroundColor: "rgb(12, 74, 154)", color: "white", marginTop: "20px", marginLeft: "15px" }} variant="primary"
-                                type="submit"
-                            >
-                                Calculate
-                            </Button>
+                            <div style={{ display: "flex", justifyContent: "center" }}>
+                                <Button style={{ backgroundColor: "rgb(12, 74, 154)", color: "white", marginTop: "20px"}} variant="primary"
+                                    type="submit"
+                                >
+                                    Calculate
+                                </Button>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
