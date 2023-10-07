@@ -1,5 +1,5 @@
 import { Inter } from 'next/font/google'
-import AllInputField from '../../components/AllInputField/AllInputField'
+import AllInputField from './AllInputField'
 
 const inter = Inter({ subsets: ['latin'] })
 

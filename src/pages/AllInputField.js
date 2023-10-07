@@ -1,12 +1,12 @@
 import { Button, Container, Grid } from "@mui/material";
-import CountryData from "../CountryData/CountryData";
-import Service from "../Service/Service";
-import WeightData from "../WeightData/WeightData";
-import CarrierData from "./CarrierData";
+import CountryData from "../../components/CountryData/CountryData";
+import Service from "../../components/Service/Service";
+import WeightData from "../../components/WeightData/WeightData";
+import CarrierData from "../../components/AllInputField/CarrierData";
 import { useEffect, useState } from "react";
 import ratesData from "@/pages/rateCalculate";
 import Swal from "sweetalert2";
-import {  toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 const AllInputField = ({ initialRates }) => {
 
     const [country, setCountry] = useState()
@@ -53,19 +53,19 @@ const AllInputField = ({ initialRates }) => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
-        if (!country ) {
+        if (!country) {
             toast("X Please select your country!")
         }
-        else if(!service){
-            toast("X Please choose your service!") 
+        else if (!service) {
+            toast("X Please choose your service!")
         }
-        else if(!carrier){
-            toast("X Please choose your carrier!") 
+        else if (!carrier) {
+            toast("X Please choose your carrier!")
         }
-        else if(!weight){
-            toast("X Please give your product weight") 
+        else if (!weight) {
+            toast("X Please give your product weight")
         }
-        else{
+        else {
             rateUpdateState();
             setActiveResult(true);
         }
@@ -125,7 +125,7 @@ const AllInputField = ({ initialRates }) => {
                                             </p>
                                         ) : (
                                             <span className="font-bold text-[#08919E] text-2xl">
-                                                        <span style={{ color: "green" }}>Total Cost:</span>  <span style={{color:"blueviolet"}}>{rates ? rates : "Service not available"} (BDT)</span>
+                                                <span style={{ color: "green" }}>Total Cost:</span>  <span style={{ color: "blueviolet" }}>{rates ? rates : "Service not available"} (BDT)</span>
                                             </span>
                                         )}
                                     </div>
