@@ -21,7 +21,7 @@ const CountryData = ({ setCountry }) => {
     const [filteredCountries, setFilteredCountries] = useState([]);
     const [selectedIndex, setSelectedIndex] = useState(-1);
     const [selectedCountry, setSelectedCountry] = useState(null);
-    
+
 
 
 
@@ -31,21 +31,12 @@ const CountryData = ({ setCountry }) => {
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error.message}</p>;
-    const countriesData = data.getCountries.result.list;
+    const countriesData = data?.getCountries.result.list;
 
     const handleInputChange = (e) => {
-        const input = e.target.value.toLowerCase();
-        if(input === "" && null){
-            alert("Please enter")
-        }
-        else{
-            setCountry(e.target.value)
-            setInputValue(input);
-            const filtered = countriesData.filter((country) =>
-            country.name.toLowerCase().includes(input)).sort((a, b) => a.name.localeCompare(b.name))
-            setFilteredCountries(filtered);
-            setSelectedIndex(-1);
-        }
+        const query = e.target.value.toLowerCase();
+        setCountry(query)
+
     };
 
     const handleCountrySelection = (countryName) => {
@@ -80,12 +71,17 @@ const CountryData = ({ setCountry }) => {
     return (
         <div style={{ marginTop: "12px" }}>
             <Autocomplete
-                options={countriesData}
-                getOptionLabel={(country) => country.name}
+                options={countriesData?.map(country => country?.name)}
+                getOptionLabel={(option) => option}
                 value={selectedCountry}
                 inputValue={inputValue}
                 onInputChange={handleInputChanges}
                 onChange={(e, newValue) => handleCountrySelections(newValue)}
+                filterOptions={(options, { inputValue }) =>
+                    options.filter((option) =>
+                        option.toLowerCase().startsWith(inputValue.toLowerCase())
+                    )
+                }
                 renderInput={(params) => (
                     <List>
                         <TextField {...params}
@@ -96,35 +92,9 @@ const CountryData = ({ setCountry }) => {
                         />
                     </List>
                 )}
-                ListboxProps={{
-                    style: {
-                        maxHeight: '500px', // Adjust the maximum height as needed
-                    },
-                }}
 
             />
 
-
-            {filteredCountries.length > 0 && inputValue && (
-                <List>
-                    {filteredCountries.map((country, index, props) => (
-                        <ListItem
-                            {...props}
-                            key={index}
-                            style={{
-                                cursor: "pointer",
-                                minWidth: 250,
-
-                                backgroundColor:
-                                    index === selectedIndex ? "lightgray" : "white",
-                            }}
-                            onClick={() => handleCountrySelection(country.name)}
-                        >
-                            {country.name}
-                        </ListItem>
-                    ))}
-                </List>
-            )}
         </div>
     );
 };
