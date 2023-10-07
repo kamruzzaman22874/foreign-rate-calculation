@@ -4,9 +4,9 @@ import Service from "../../components/Service/Service";
 import WeightData from "../../components/WeightData/WeightData";
 import CarrierData from "../../components/AllInputField/CarrierData";
 import { useEffect, useState } from "react";
-import ratesData from "@/pages/rateCalculate";
 import Swal from "sweetalert2";
 import { toast } from 'react-toastify';
+import ratesData from "./rateCalculate";
 const AllInputField = ({ initialRates }) => {
 
     const [country, setCountry] = useState()
