@@ -1,4 +1,4 @@
-import { Button, Container, Grid } from "@mui/material";
+import { Button, Container, Grid, Typography } from "@mui/material";
 import CountryData from "../../components/CountryData/CountryData";
 import Service from "../../components/Service/Service";
 import WeightData from "../../components/WeightData/WeightData";
@@ -94,6 +94,9 @@ const AllInputField = ({ initialRates }) => {
 
     return (
         <Container maxWidth="lg">
+            <Typography style={{ fontFamily: "sans-serif",textAlign:"center" }} variant="h5" gutterBottom>
+                Our International Services <br />
+            </Typography>
             <form onSubmit={handleFormSubmit}>
                 <div>
                     <Grid container spacing={3}>
@@ -125,9 +128,9 @@ const AllInputField = ({ initialRates }) => {
                                             </p>
                                         ) : (
                                             <span className="font-bold text-[#08919E] text-2xl">
-   
+
                                                 {
-                                                            rates ? <> <span style={{ color: "green" }}>Total amount:</span> <span style={{ color: "blueviolet" }}> {rates} (BDT)</span> </>: <span style={{color:"red"}}>service not available</span>
+                                                    rates ? <> <span style={{ color: "green" }}>Total amount:</span> <span style={{ color: "blueviolet" }}> {rates} (BDT)</span> </> : <span style={{ color: "red" }}>service not available</span>
                                                 }
 
                                             </span>
@@ -136,13 +139,13 @@ const AllInputField = ({ initialRates }) => {
                                 )}
                             </div>
                             <div style={{ display: "flex", justifyContent: "center" }}>
-                                <Button style={{ backgroundColor: "rgb(12, 74, 154)", color: "white", marginTop: "20px"}} variant="primary"
+                                <Button style={{ backgroundColor: "rgb(12, 74, 154)", color: "white", marginTop: "20px" }} variant="primary"
                                     type="submit"
                                 >
                                     Calculate
                                 </Button>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>
