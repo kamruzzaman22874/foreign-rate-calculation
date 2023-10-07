@@ -6,7 +6,7 @@ import CarrierData from "../../components/AllInputField/CarrierData";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import { toast } from 'react-toastify';
-import ratesData from "./rateCalculate";
+import ratesData from "../utilities/rateCalculate";
 const AllInputField = ({ initialRates }) => {
 
     const [country, setCountry] = useState()
