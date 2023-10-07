@@ -125,7 +125,11 @@ const AllInputField = ({ initialRates }) => {
                                             </p>
                                         ) : (
                                             <span className="font-bold text-[#08919E] text-2xl">
-                                                <span style={{ color: "green" }}>Total amount:</span>  <span style={{ color: "blueviolet" }}>{rates ? rates : "Service not available"} (BDT)</span>
+   
+                                                {
+                                                            rates ? <> <span style={{ color: "green" }}>Total amount:</span> <span style={{ color: "blueviolet" }}> {rates} (BDT)</span> </>: <span style={{color:"red"}}>service not available</span>
+                                                }
+
                                             </span>
                                         )}
                                     </div>
